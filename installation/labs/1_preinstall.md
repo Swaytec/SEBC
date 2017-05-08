@@ -7,17 +7,17 @@ echo 1 > /proc/sys/vm/swappiness
 
 
 Show the mount attributes of your volume(s)
-'''
+```
 [root@ip-172-31-42-246 ~]# df -Th
 Filesystem     Type   Size  Used Avail Use% Mounted on
 /dev/xvde      ext4   7.9G  651M  6.9G   9% /
 tmpfs          tmpfs  7.4G     0  7.4G   0% /dev/shm
-'''
+```
 
 
 
 If you have ext-based volumes, list the reserve space setting
-'''
+```
 [root@ip-172-31-42-246 hugepages]# fdisk /dev/xvde
 Command (m for help): p
 
@@ -29,12 +29,12 @@ I/O size (minimum/optimal): 512 bytes / 512 bytes
 Disk identifier: 0x655d7a7c
 
     Device Boot      Start         End      Blocks   Id  System
-'''
+```
 
 
 
 Disable transparent hugepage support
-'''
+```
 vi /etc/rc.local
 echo never > /sys/kernel/mm/transparent_hugepage/enabled
 echo never > /sys/kernel/mm/transparent_hugepage/defrag
@@ -45,12 +45,12 @@ reboot
 or
 ./ssh.sh "echo never > /sys/kernel/mm/transparent_hugepage/enabled
 ./ssh.sh "echo never > /sys/kernel/mm/transparent_hugepage/defrag
-'''
+```
 
 
 
 List your network interface configuration
-'''
+```
 ifconfig
 eth0      Link encap:Ethernet  HWaddr 06:F0:0D:6D:C8:F0  
           inet addr:172.31.42.246  Bcast:172.31.47.255  Mask:255.255.240.0
@@ -73,38 +73,48 @@ lo        Link encap:Local Loopback
 
 
 
-'''
+```
 
 
 
 Show that forward and reverse host lookups are correctly resolved
-'''
-[root@ip-172-31-42-246 hugepages]# cat /etc/hosts
-127.0.0.1	localhost.localdomain localhost
-::1		localhost6.localdomain6 localhost6
+```
+[root@ip-172-31-41-39 ~]# yum install bind-utils 
+
+[root@ip-172-31-41-39 ~]# nslookup yum install bind-utils
+nslookup: couldn't get address for 'install': not found
+[root@ip-172-31-41-39 ~]# nslookup ec2-35-163-39-218.us-west-2.compute.amazonaws.com
+Server:		172.31.0.2
+Address:	172.31.0.2#53
+
+Non-authoritative answer:
+Name:	ec2-35-163-39-218.us-west-2.compute.amazonaws.com
+Address: 172.31.42.246
+
+[root@ip-172-31-41-39 ~]# nslookup 172.31.42.246
+Server:		172.31.0.2
+Address:	172.31.0.2#53
+
+Non-authoritative answer:
+246.42.31.172.in-addr.arpa	name = ip-172-31-42-246.us-west-2.compute.internal.
 
 
-172.31.42.246	manager 
-172.31.32.150	node01
-172.31.34.219	node02
-172.31.40.86	node03
-172.31.41.39	node04
-'''
+```
 
 
 Show the nscd service is running
-'''
+```
 yum install nscd
 service nscd start
 chkconfig nscd on
 
 [root@ip-172-31-42-246 hugepages]# service nscd status
 nscd (pid 4524) is running...
-'''
+```
 
 
 Show the ntpd service is running
-'''
+```
 [root@ip-172-31-42-246 hugepages]# yum install ntp
 [root@ip-172-31-42-246 hugepages]# service ntpd status
 ntpd is stopped
@@ -113,7 +123,7 @@ Starting ntpd:                                             [  OK  ]
 [root@ip-172-31-42-246 hugepages]# chkconfig ntpd on
 [root@ip-172-31-42-246 hugepages]# service ntpd status
 ntpd (pid  4613) is running...
-'''
+```
 
 
 
