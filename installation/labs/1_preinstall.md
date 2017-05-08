@@ -35,16 +35,10 @@ Disk identifier: 0x655d7a7c
 
 Disable transparent hugepage support
 ```
-vi /etc/rc.local
-echo never > /sys/kernel/mm/transparent_hugepage/enabled
-echo never > /sys/kernel/mm/transparent_hugepage/defrag
+[root@ip-172-31-42-246 hugepages]# cat /sys/kernel/mm/transparent_hugepage/enabled
+cat: /sys/kernel/mm/transparent_hugepage/enabled: No such file or directory
 
-./scp.sh /etc/rc.local /etc/
-
-reboot
-or
-./ssh.sh "echo never > /sys/kernel/mm/transparent_hugepage/enabled
-./ssh.sh "echo never > /sys/kernel/mm/transparent_hugepage/defrag
+transparent hugepage is disable
 ```
 
 
