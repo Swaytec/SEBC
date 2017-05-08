@@ -1,9 +1,9 @@
 
 Check vm.swappiness on all your nodes
-'''
+```
 sysctl vm.swappiness
 echo 1 > /proc/sys/vm/swappiness
-'''
+```
 
 
 Show the mount attributes of your volume(s)
