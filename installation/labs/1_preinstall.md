@@ -8,16 +8,24 @@ echo 1 > /proc/sys/vm/swappiness
 
 Show the mount attributes of your volume(s)
 ```
-[root@ip-172-31-42-246 ~]# df -Th
-Filesystem     Type   Size  Used Avail Use% Mounted on
-/dev/xvde      ext4   7.9G  651M  6.9G   9% /
-tmpfs          tmpfs  7.4G     0  7.4G   0% /dev/shm
+mount -l 
+/dev/xvda1 on / type ext4 (rw)
+proc on /proc type proc (rw)
+sysfs on /sys type sysfs (rw)
+devpts on /dev/pts type devpts (rw,gid=5,mode=620)
+tmpfs on /dev/shm type tmpfs (rw,rootcontext="system_u:object_r:tmpfs_t:s0")
+none on /proc/sys/fs/binfmt_misc type binfmt_misc (rw)
 ```
 
 
 
 If you have ext-based volumes, list the reserve space setting
 ```
+[root@ip-172-31-42-246 ~]# df -Th
+Filesystem     Type   Size  Used Avail Use% Mounted on
+/dev/xvde      ext4   7.9G  651M  6.9G   9% /
+tmpfs          tmpfs  7.4G     0  7.4G   0% /dev/shm
+
 [root@ip-172-31-42-246 hugepages]# fdisk /dev/xvde
 Command (m for help): p
 
@@ -35,10 +43,18 @@ Disk identifier: 0x655d7a7c
 
 Disable transparent hugepage support
 ```
-[root@ip-172-31-42-246 hugepages]# cat /sys/kernel/mm/transparent_hugepage/enabled
-cat: /sys/kernel/mm/transparent_hugepage/enabled: No such file or directory
+Added transparent_hugepage=never at the end of kernel line in /boot/grub/grub.conf
 
-transparent hugepage is disable
+grep -i HugePages_Total /proc/meminfo 
+HugePages_Total:       0
+
+cat /proc/sys/vm/nr_hugepages 
+0
+
+sysctl vm.nr_hugepages
+vm.nr_hugepages = 0
+
+check transparent hugepage is disable
 ```
 
 
@@ -92,6 +108,15 @@ Address:	172.31.0.2#53
 Non-authoritative answer:
 246.42.31.172.in-addr.arpa	name = ip-172-31-42-246.us-west-2.compute.internal.
 
+
+[root@ip-172-31-42-246 ~]# getent hosts
+127.0.0.1       localhost.localdomain localhost
+127.0.0.1       localhost6.localdomain6 localhost6
+172.31.42.246   ip-172-31-42-246.us-west-2.compute.internal
+172.31.32.150   ip-172-31-32-150.us-west-2.compute.internal
+172.31.34.219   ip-172-31-34-219.us-west-2.compute.internal
+172.31.40.86    ip-172-31-40-86.us-west-2.compute.internal
+172.31.41.39    ip-172-31-41-39.us-west-2.compute.internal
 
 ```
 
