@@ -37,15 +37,6 @@ yum update -y
 sudo yum install -y mysql
 ```
 
-Add jdbc connector from oracle website v5.1 and add to path (don't forget to rename or use a symlink)
-```
-wget http://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5.1.42.tar.gz
-tar -xzvf mysql-connector-java-5.1.42.tar.gz
-mkdir /usr/share/java
-sudo mv mysql-connector-java-5.1.42/mysql-connector-java-5.1.42-bin.jar /usr/share/java/mysql-connector-java.jar 
-echo "PATH=/usr/share/java/:$PATH" >> ~/.bashrc
-source ~/.bashrc
-```
 
 Run mysql_secure_installation and configure root on both edge and replica server
 
