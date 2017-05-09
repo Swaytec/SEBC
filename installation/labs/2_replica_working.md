@@ -138,7 +138,7 @@ Master_SSL_Verify_Server_Cert: No
 
 configure mysql
 ```
-[root@ip-172-31-42-246 ~]# mysqladmin -u root password 'rootme'
+[root@ip-172-31-42-246 ~]# mysqladmin -u root password 'password00'
 
 mysql> delete from mysql.user where user='';
 Query OK, 2 rows affected (0.00 sec)
@@ -146,7 +146,7 @@ Query OK, 2 rows affected (0.00 sec)
 mysql> flush privileges;
 Query OK, 0 rows affected (0.00 sec)
 
-mysql> GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'rootme' WITH GRANT OPTION; 
+mysql> GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'password00' WITH GRANT OPTION; 
 Query OK, 0 rows affected (0.00 sec)
 
 mysql> drop database test;
