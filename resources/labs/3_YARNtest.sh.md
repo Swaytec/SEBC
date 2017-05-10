@@ -1,4 +1,6 @@
 
+## Shell script
+```
 #!/bin/sh
 # Confirm the path values given below correspond to your installation
 
@@ -27,7 +29,7 @@ do
                      -Dmapreduce.job.maps=$i \
                      -Dmapreduce.map.memory.mb=$k \
                      -Dmapreduce.map.java.opts.max.heap=$MAP_MB \
-                     51200000 /results/tg-10GB-${i}-${j}-${k} 1>tera_${i}_${j}_${k}.out 2>tera_${i}_${j}_${k}.err
+                     100000000 /results/tg-10GB-${i}-${j}-${k} 1>tera_${i}_${j}_${k}.out 2>tera_${i}_${j}_${k}.err
 
        time ${HADOOP}/hadoop jar $MR/hadoop-examples.jar terasort \
                      -Dmapreduce.job.maps=$i \
@@ -46,3 +48,5 @@ do
 done
 
 echo Testing loop ended on `date`
+
+```
