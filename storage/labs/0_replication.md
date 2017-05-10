@@ -1,4 +1,4 @@
-Use teragen to create a 500 MB file
+## Use teragen to create a 500 MB file
 
 ```
 [hdfs@ip-172-31-42-246 jars]$ hadoop jar hadoop-examples.jar teragen 5000000 /Data500m/
@@ -61,7 +61,7 @@ drwxr-xr-x   - hdfs supergroup          0 2017-05-09 03:20 /user
 ```
 
 
-Copy your partner's file to your target directory
+## Copy your partner's file to your target directory
 ```
 I had test distcp to partner cluster,because network zone limit different zone private ip doesn't connect each other in aws,so I just test command below
 (Note:if config host map private ip to public ip, can be resolve this question,i have already proof this with partner student)
@@ -146,7 +146,7 @@ Found 3 items
 
 
 
-Browse the results
+## Browse the results
 ```
 [hdfs@ip-172-31-42-246 jars]$ hdfs fsck /Data500m -files -blocks
 Connecting to namenode via http://ip-172-31-42-246.us-west-2.compute.internal:50070

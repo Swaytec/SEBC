@@ -1,5 +1,5 @@
 
-Create an end-user Linux account named with your GitHub handle
+## Create an end-user Linux account named with your GitHub handle
 ```
 [hdfs@ip-172-31-42-246 tmp]$ useradd swaytec
 [hdfs@ip-172-31-42-246 tmp]$ hdfs dfs -mkdir /user/swaytec
@@ -7,7 +7,7 @@ Create an end-user Linux account named with your GitHub handle
 [root@ip-172-31-42-246 tmp]# su swaytec
 ```
 
-Create a 10 GB file using teragen
+## Create a 10 GB file using teragen
 ```
 time hadoop jar /opt/cloudera/parcels/CDH/lib/hadoop-0.20-mapreduce/hadoop-examples.jar teragen -Dmapred.map.tasks=4 -D dfs.blocksize=32m -Dmapred.map.tasks.speculative.execution=false 100000000 /user/swaytec/Data10G
 
@@ -148,7 +148,7 @@ sys     0m0.898s
 
 ```
 
-Run the terasort command on this file
+## Run the terasort command on this file
 ```
 time hadoop jar /opt/cloudera/parcels/CDH/lib/hadoop-0.20-mapreduce/hadoop-examples.jar terasort -Dmapred.map.tasks.speculative.execution=false /user/swaytec/Data10G terasort_out
 

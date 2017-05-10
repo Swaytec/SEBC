@@ -1,4 +1,4 @@
-Create a precious directory in HDFS; copy the ZIP course file into it.
+## Create a precious directory in HDFS; copy the ZIP course file into it.
 ```
 [hdfs@ip-172-31-42-246 hadoop-0.20-mapreduce]$ hdfs dfs -mkdir /precious
 [hdfs@ip-172-31-42-246 hadoop-0.20-mapreduce]$ hdfs dfs -ls /
@@ -16,20 +16,20 @@ Found 1 items
 ```
 
 
-Delete the directory
+## Delete the directory
 ```
 [hdfs@ip-172-31-42-246 tmp]$ hdfs dfs -rm -r /precious
 rm: Failed to move to trash: hdfs://ip-172-31-42-246.us-west-2.compute.internal:8020/precious: The directory /precious cannot be deleted since /precious is snapshottable and already has snapshots
 ```
 
-Delete the ZIP file
+## Delete the ZIP file
 ```
 [hdfs@ip-172-31-42-246 tmp]$ hdfs dfs -rm  /precious/SEBC-Shanghai.zip
 17/05/09 08:31:04 INFO fs.TrashPolicyDefault: Moved: 'hdfs://ip-172-31-42-246.us-west-2.compute.internal:8020/precious/SEBC-Shanghai.zip' to trash at: hdfs://ip-172-31-42-246.us-west-2.compute.internal:8020/user/hdfs/.Trash/Current/precious/SEBC-Shanghai.zip
 [hdfs@ip-172-31-42-246 tmp]$ hdfs dfs -ls /precious
 ```
 
-Restore the deleted file
+## Restore the deleted file
 ```
 hdfs dfs -ls -R /precious/.snapshot
 hdfs dfs -cp /precious/.snapshot/sebc-hdfs-test/SEBC-master.zip /precious
