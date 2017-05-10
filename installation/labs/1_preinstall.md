@@ -36,7 +36,8 @@ Sector size (logical/physical): 512 bytes / 512 bytes
 I/O size (minimum/optimal): 512 bytes / 512 bytes
 Disk identifier: 0x655d7a7c
 
-    Device Boot      Start         End      Blocks   Id  System
+resize2fx /dev/xvde
+
 ```
 
 
