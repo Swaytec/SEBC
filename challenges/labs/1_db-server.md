@@ -16,16 +16,18 @@ mysql> show databases;
 | Database           |
 +--------------------+
 | information_schema |
+| cm                 |
 | hive               |
 | hue                |
 | mysql              |
-| ooize              |
+| oozie              |
 | performance_schema |
 | report             |
 | rman               |
 | scm                |
 | sentry             |
 +--------------------+
-10 rows in set (0.00 sec)
+11 rows in set (0.00 sec)
+
 
 ```
