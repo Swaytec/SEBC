@@ -13,7 +13,7 @@ kerberos and sentry.
 
 What was the most difficult technical subject for you this week?
 ```
-i think mysql replication and TLS is difficult.
+I think mysql replication and TLS is difficult.
 ```
 
 Which subject that we covered did you learn the most from?
@@ -33,7 +33,7 @@ data analytic subject.
 
 How much time do you think you will need to be able to install a cluster by yourself (no help, no mentoring)?
 ```
-i think 1h is enough.
+I think 1h is enough.
 ```
 
 Thank you and safe travels.
