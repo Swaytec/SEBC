@@ -1,4 +1,4 @@
-## chen run script with kerberos
+## chen run pi script with kerberos
 ```
 [chen@ip-172-31-43-169 root]$ kinit chen
 [chen@ip-172-31-43-169 root]$ klist -e

@@ -1,4 +1,4 @@
-## zhou run script with kerberos
+## zhou run terasort script with kerberos
 
 ```
 [zhou@ip-172-31-43-169 root]$ kinit zhou
