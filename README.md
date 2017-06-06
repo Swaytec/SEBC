@@ -77,5 +77,5 @@ your invitation to collaborate. They will also review your repo for
 all the settings described here, and point out anything that isn't
 setup correctly. This issue will be the only one you're asked to
 close.  All other issues are to be closed by an instructor to show
-no further review is needed.
+no further review is needed.test
 
